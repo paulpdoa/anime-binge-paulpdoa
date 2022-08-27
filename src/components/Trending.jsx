@@ -2,7 +2,7 @@ import trending from '.././data/trending.json';
 import TrendingCard from './TrendingCard';
 import { useInView } from 'react-intersection-observer';
 import { motion,useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useAnimeContext } from '../hooks/useAnimeContext';
 import Season from './home/Season';
 
@@ -41,15 +41,20 @@ const cardVar = {
 
 const Trending = () => {
 
-    const { isOpen } = useAnimeContext();
+    const { isOpen,dispatch } = useAnimeContext();
     const { ref, inView } = useInView({
         threshold: 0.3
     });
     const animation = useAnimation();
-
+    const [currentAnime,setCurrentAnime] = useState('');
+    console.log(currentAnime);
+    
     useEffect(() => {
         if(inView) {
-            animation.start('visible')
+            animation.start('visible');
+            /* If the card is clicked and scrolled further, the initial value should 
+            always be false to return to normal state which is false */
+            dispatch({type:'SHOW_SEASON',payload: false})
         } else {
             animation.start('hidden');
         }
@@ -68,9 +73,9 @@ const Trending = () => {
                 variants={cardVar}
             >
                 { trending.map(anime => (
-                    <div key={anime.id} className={anime.title === 'Attack on Titan' && isOpen ? 'trend-season' : ''}>
-                        <TrendingCard anime={anime} />
-                        { anime.title === 'Attack on Titan' && isOpen ? <Season /> : '' }
+                    <div key={anime.id} className={ currentAnime === anime.title && isOpen ? 'trend-season' : '' }>
+                        <TrendingCard setCurrentAnime={setCurrentAnime} anime={anime} currentAnime={currentAnime} />
+                        { currentAnime === anime.title && isOpen ? <Season /> : '' }
                     </div>
                 )) }
             </motion.div>

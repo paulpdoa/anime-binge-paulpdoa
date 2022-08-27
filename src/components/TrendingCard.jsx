@@ -1,7 +1,7 @@
 import { AiFillStar } from 'react-icons/ai';
 import { useAnimeContext } from '../hooks/useAnimeContext';
 
-const TrendingCard = ({ anime }) => {
+const TrendingCard = ({ anime,setCurrentAnime,currentAnime }) => {
 
     // If the card is one piece, don't display rating
     // just did this for clearer reading of code
@@ -10,13 +10,22 @@ const TrendingCard = ({ anime }) => {
     // get the isOpen value in the anime context and then also get dispatch to create an action
     const { isOpen,dispatch } = useAnimeContext();  
 
-    // create a variable to hide two animes when attack on titan is clicked
-    const hideTwoAnime = anime.title !== 'Attack on Titan' && isOpen ? "none" : '';
+    // create a variable to hide two animes when something is clicked
+    // if the clicked card is not equal to the initial card, hide those initial cards 
+    const hideTwoAnime = anime.title !== currentAnime && isOpen ? "none" : '';
+
+    // create a function for showing seasons
+    const showSeasons = () => {
+        // disabling other cards when not attack on titan
+        if(anime.title === 'Attack on Titan') {
+            dispatch({ type: 'SHOW_SEASON',payload: !isOpen });
+            setCurrentAnime(anime.title)
+        }
+    }
 
     return (
         <>
-            <div onClick={
-                    () => anime.title === 'Attack on Titan' && dispatch({ type: 'SHOW_SEASON',payload: !isOpen })} 
+            <div onClick={showSeasons} 
                     className={`${anime.title === 'Attack on Titan' ? 'attack-on-titan' : anime.title === 'Jujutsu Kaisen' ? 'jujutsu-kaisen' : 'one-piece'} trend__card ${anime.title === 'Attack on Titan' && isOpen ? 'attack-on-titan-open' : ''}`}
                     style={{display: hideTwoAnime}}
                 >
