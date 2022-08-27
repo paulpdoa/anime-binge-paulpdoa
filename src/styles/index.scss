@@ -1,0 +1,465 @@
+// Variables
+@import "./variables/variables.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: $outfit;
+    user-select:none;
+}
+// Navbar styles
+.navbar {
+    display:flex;
+    justify-content:center;
+    position:absolute;
+    top: 0em;
+    width: 100%;
+    z-index: 50;
+    padding: 2em;
+}
+.navbar--bg {
+    background: rgba(39, 39, 39, 0.441);
+}
+.navbar__container {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width: 1260px;
+    width: 100%;
+    height: 44px;
+}
+.navbar__title {
+    color: $white;
+    font-weight: $boldest;
+    font-size: 24px;
+    line-height: 30px;
+}
+.navbar__btns {
+    display:flex;
+    align-items:center;
+    gap:3em;    
+}
+.navbar__list {
+    list-style:none;
+}
+.navbar__list {
+    a {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $white;
+    }
+}
+.navbar__auth {
+    padding: 1em;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 5px;
+    height: 44px;
+    width: 112px;
+    background:none;
+    display:flex;
+    align-items:center; 
+    justify-content:center;
+    font-family: $outfit;
+    cursor:pointer;
+    &:hover {
+        background: $white;
+        transition: 0.2s ease-in-out;
+        color: $black;
+    }
+}
+.navbar__login {
+    background: $darkBlue;
+    border:none;
+    margin-left: -2em;
+    &:hover {
+        background: none;
+        border: 1px solid $white;
+        transition: 0.2s ease-in-out;
+        color: $white;
+    }
+}
+
+// Hero styles
+.hero {
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    background: radial-gradient(transparent, black), url('../assets/image-1.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: cover;
+    box-shadow: inset 0 0 1000px black;
+}
+.hero__contents {
+    max-width: 1260px;
+    width: 100%;
+    position:relative;
+    height: 100%;
+    display:flex;
+    align-items:start;
+    justify-content:center;
+    flex-direction: column;
+}
+.hero__contents > article {
+    display:flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+.hero__title {
+    color: $white;
+    font-weight: $boldest;
+    font-size: 80px;
+    line-height: 101px;
+}
+.hero__anime {
+    display:flex;
+    align-items:center;
+    gap: 1em;
+}
+.hero__rating {
+    color: $white;
+    display:flex;
+    align-items:center;
+    gap: 0.2em;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: $bolder;
+}
+.hero__star {
+    color: $yellow;
+    font-size: 2em;
+}
+.hero__categories {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: $white;
+}
+.hero__description {
+    color: $white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 630px;
+}
+.hero__btns {
+    display:flex;
+    gap:1em;
+    align-items:center;
+    margin-top: 1em;
+}
+.hero__watch {
+    background: $darkBlue;
+    height: 44px;
+    width: 142px;
+    color: $white;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap: 0.2em;
+    font-family: $outfit;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    cursor:pointer;
+    border: 1px solid $darkBlue;
+    &:hover {
+        background:none;
+        border: 1px solid $white;   
+        transition: 0.2s ease-in-out;
+    }
+}
+.hero__favorite {
+    height: 44px;
+    width: 48px;
+    border: 1px solid $white;
+    border-radius:5px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor:pointer;
+    color: $black;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    background:none;
+    color:$white;
+    &:hover {
+        background:$white;
+        color: red;
+        transition: 0.2s ease-in-out;
+    }
+}
+.hero__heart {
+    font-size: 1.6em;
+}
+.hero__navigation {
+    display:flex;
+    justify-content:space-between;
+    position:absolute;
+    bottom:3em;
+    left: 0;
+    width: 100%;
+}
+.hero__pages {
+    list-style:none;
+    display:flex;
+    gap: 1em;
+}
+.hero__pages {
+    li {
+        color: $white;
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 18px;
+        cursor:pointer;
+        &:hover {
+            border-bottom: 3px solid $darkBlue;
+            font-weight: $boldest;
+            transition: 0.2s ease-in-out;
+        }
+    }
+}
+.hero__active {
+    font-weight: $boldest !important;
+    border-bottom: 3px solid $darkBlue;
+}
+.hero__current {
+    display:flex;
+    align-items:center;
+    gap: 0.5em;
+}
+.current__active {
+    border-radius: 100px;
+    height: 3px;
+    width: 0;
+    border: 9px solid $white;
+    cursor: pointer;
+    &:hover {
+        border: 9px solid $darkBlue;
+        transition: 0.2s ease-in-out;
+    }
+}
+.current--page {
+    border: 9px solid $darkBlue;
+    width: 122px;
+}
+// Animes styles
+.animes {
+    height: auto;
+    background: $dark;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    padding: 5em;
+}
+.animes__contents {
+    max-width: 1260px;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 5em;
+}
+// Trending component style
+.trending {
+    overflow:hidden;
+    width: 100%;
+}
+.trending__title {
+    font-weight: $boldest;
+    font-size: 34px;
+    line-height: 43px;
+    color: $white;
+    span {
+        color: $yellow;
+    }
+}
+.trend {
+    display:flex;
+    gap: 1em;
+    align-items:center;
+    margin-top: 2em;
+    width: 100%;
+}
+// trend card
+.trend__card {
+    cursor:pointer;
+    @include cardHover();
+}
+.attack-on-titan {
+    @include trendCard('../assets/Rectangle-9.png');
+    @include bgProp();
+}
+.jujutsu-kaisen {
+    @include trendCard('../assets/Rectangle-10.png');
+    @include bgProp();
+}
+.one-piece {
+    @include trendCard('../assets/Rectangle-11.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    border-radius: none !important;
+    border-bottom-left-radius: 21px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    
+}
+.trend__about {
+    display:flex;
+    justify-content: space-between;
+    align-items:end;
+    position:absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    padding: 2em;
+}
+.trend__image {
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.trend__name {
+    color: $white;
+    font-weight: $bolder;
+    font-size: 24px;
+    line-height: 30px;
+}
+.trend__category {
+    color: $gray;
+    font-weight: 400;
+    font-size: 12px;
+    line-height:15px;
+}
+.trend__rate {
+    display:flex;
+    align-items:center;
+    gap:0.2em;
+    color: $white;
+    font-size: 12px;
+    font-weight: $bolder;
+    line-height: 15px;
+    .trend__star {
+        color: $yellow;
+        font-size: 1.5em;
+    }
+}
+// Throwback component style
+.throwback__title {
+    font-weight: $boldest;
+    font-size: 34px;
+    line-height: 42.84px;
+    color: $white;
+}
+.tb {
+    display:flex;
+    align-items:center;
+    width: 100%;
+    justify-content:space-around;
+    margin-top: 2em;
+}
+.ghost-fighter {
+    @include bgProp();
+    @include tbCard('../assets/Rectangle-24.png');
+    @include cardHover();
+}
+.slam-dunk {
+    @include bgProp();
+    @include tbCard('../assets/Rectangle-25.png');
+    @include cardHover();
+}
+.flame-of-recca {
+    @include bgProp();
+    @include tbCard('../assets/Rectangle-26.png');
+    @include cardHover();
+}
+
+// For showing season
+.attack-on-titan-open {
+    width: 516px !important;
+    height: 621px !important;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%, rgba(0, 0, 0, 0.421875) 45.83%, #000000 100%),url('../assets/Rectangle-9.1.png');
+    border-radius: 21px;   
+    position:relative;
+}
+// make the container side to side when attack on titan is clicked
+.trend-season {
+    position:relative;
+    width: 100%;
+}
+.open-desc {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: $gray;
+    margin-top: 1em;
+    width: 500px;
+}
+// Seasons component
+.season {
+    width: 56%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    right:0;
+    .season__head {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        .season__title {
+            color: $white;
+            font-weight: $bold;
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+    .season__episodes {
+        display:flex;
+        flex-direction: column;
+        gap:1em;
+        margin-top: 1em;
+    }
+}
+
+.episode__card {
+    display:flex;
+    align-items:center;
+
+    .episode__image {
+        width: 448px;
+        height: 252px;
+        border-radius: 20px;
+        transition: 0.4s ease-in-out;
+    }
+    .episode__about {
+        margin-left: 1em;
+        .episode__title {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 25px;
+            color: $white;
+        }
+        .episode__desc {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 25px;
+            color: $gray;
+            margin-top: 0.5em;
+        }
+    }
+}
+

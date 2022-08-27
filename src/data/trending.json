@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Attack on Titan",
+        "categories": ["Adventure fiction", "Dark fantasy", "Martial Arts"],
+        "rating": "5.0",
+        "image":"/images/Rectangle-9.png"
+    },
+    {
+        "id": 2,
+        "title": "Jujutsu Kaisen",
+        "categories": ["Adventure fiction", "Martial Arts"],
+        "rating": "5.0",
+        "image":"/images/Rectangle-10.png"
+    },
+    {
+        "id": 3,
+        "title": "One Piece",
+        "categories": ["Adventure fiction", "Comedy", "Family"],
+        "rating": "5.0",
+        "image":"/images/Rectangle-11.png"
+    }
+]
